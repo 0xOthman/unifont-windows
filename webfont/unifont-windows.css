@@ -1,0 +1,9 @@
+/* Unifont Windows — web font */
+@font-face {
+  font-family: 'Unifont Windows';
+  src: url('Unifont-Windows.woff2') format('woff2'),
+       url('Unifont-Windows.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

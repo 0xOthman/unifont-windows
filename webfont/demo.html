@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unifont Windows — Web Font Demo</title>
+<link rel="stylesheet" href="unifont-windows.css">
+<style>
+  body { font-family: 'Unifont Windows', monospace; margin: 2rem auto; max-width: 800px; padding: 0 1rem; background: #fafafa; color: #222; }
+  h1 { font-size: 1.6rem; }
+  section { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem 0; }
+  .rtl { direction: rtl; text-align: right; }
+  .big { font-size: 2rem; }
+  code { background: #eee; padding: 0.1em 0.3em; border-radius: 3px; }
+</style>
+</head>
+<body>
+  <h1>Unifont Windows — Web Font Demo</h1>
+
+  <section>
+    <h2>Latin</h2>
+    <p>The quick brown fox jumps over the lazy dog. 0123456789</p>
+    <p class="big">Hello, World!</p>
+  </section>
+
+  <section class="rtl">
+    <h2>العربية</h2>
+    <p>صِفْ خَلْقَ خَوْدٍ كَمِثْلِ الشَّمْسِ إِذْ بَزَغَتْ — يَحْظَى الضَّجِيعُ بِهَا نَجْلَاءَ مِعْطَارِ</p>
+    <p class="big">السلام عليكم — لا إله إلا الله</p>
+  </section>
+
+  <section>
+    <h2>Mixed / Symbols</h2>
+    <p>Box drawing: ┌─┬─┐ │ ├─┼─┤ └─┴─┘</p>
+    <p>Math: ∑ ∫ √ ≈ ≠ ∞ π</p>
+    <p>Cyrillic: Съешь же ещё этих мягких французских булок</p>
+    <p>Greek: Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία</p>
+    <p>CJK: 私はガラスを食べられます。我能吞下玻璃而不伤身体。</p>
+  </section>
+
+  <section>
+    <h2>Usage</h2>
+    <p>Include <code>unifont-windows.css</code> and set <code>font-family: 'Unifont Windows', monospace;</code></p>
+  </section>
+</body>
+</html>

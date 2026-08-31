@@ -74,6 +74,47 @@ unifont-17.0.05.otf   GSUB scripts: [DFLT, thai]   features: none   lookups: 0
 | أشكال العرض العربية-أ | U+FB50–U+FDFF | 688 |
 | أشكال العرض العربية-ب | U+FE70–U+FEFF | 144 |
 
+## نسخة الويب (Web Font)
+
+مجلد `webfont/` يحتوي على نسخة جاهزة للاستخدام في مواقع الويب:
+
+| الملف | الحجم | الغرض |
+|---|---|---|
+| `Unifont-Windows.woff2` | ~1.1 م.ب | المتصفحات الحديثة (كلها تقريبًا) |
+| `Unifont-Windows.woff` | ~2.4 م.ب | احتياطي للمتصفحات القديمة |
+| `unifont-windows.css` | — | قاعدة `@font-face` جاهزة |
+| `demo.html` | — | صفحة تجربة (عربي، لاتيني، رموز، CJK) |
+
+**الاستخدام:** انسخ مجلد `webfont` إلى موقعك ثم أضف:
+
+</div>
+
+```html
+<link rel="stylesheet" href="webfont/unifont-windows.css">
+```
+
+```css
+body { font-family: 'Unifont Windows', monospace; }
+```
+
+<div dir="rtl">
+
+أو مباشرة من CDN دون تحميل أي شيء:
+
+</div>
+
+```css
+@font-face {
+  font-family: 'Unifont Windows';
+  src: url('https://cdn.jsdelivr.net/gh/0xOthman/unifont-windows@main/webfont/Unifont-Windows.woff2') format('woff2');
+  font-display: swap;
+}
+```
+
+<div dir="rtl">
+
+المتصفح سيحمّل فقط ملف WOFF2 (~1.1 م.ب)، وخاصية `font-display: swap` تعرض النص فورًا بخط بديل حتى اكتمال التحميل.
+
 ## الحقوق والترخيص
 
 - الخط الأصلي: **GNU Unifont** — حقوق النشر © 1998–2026 لـ Roman Czyborra وPaul Hardy وQianqian Fang وAndrew Miller وJohnnie Weaver وDavid Corbett وÆlla Chiana Moskopp وRebecca Bettencourt وHo-Seok Ee وآخرين — https://unifoundry.com/unifont/
@@ -94,6 +135,16 @@ The official `unifont-17.0.05.otf` (included here for comparison) has two proble
 `Unifont-Windows.ttf` fixes both: outlines converted from CFF to TrueType (`glyf`) so the font actually installs and works everywhere on Windows, a proper `arab` GSUB script added with `isol`/`init`/`medi`/`fina`/`rlig` features so Arabic connects correctly, and the family renamed to **Unifont-Windows** to install cleanly alongside the original. **All glyphs, metrics, and coverage are preserved unchanged** from upstream.
 
 **Install:** double-click `Unifont-Windows.ttf` → Install → select **Unifont-Windows** in your app.
+
+**Web font:** the `webfont/` folder has WOFF2 (~1.1 MB) / WOFF (~2.4 MB) builds, a ready `@font-face` stylesheet (`unifont-windows.css`), and a `demo.html` test page. Copy the folder to your site and set `font-family: 'Unifont Windows', monospace;`, or load it straight from CDN:
+
+```css
+@font-face {
+  font-family: 'Unifont Windows';
+  src: url('https://cdn.jsdelivr.net/gh/0xOthman/unifont-windows@main/webfont/Unifont-Windows.woff2') format('woff2');
+  font-display: swap;
+}
+```
 
 The screenshots above (`terminal.png`, `word.png`, `notepad.png`) show the same Arabic/English story rendered with this font in Terminal, Microsoft Word, and Notepad; the `arabic-*-ar.png` images are glyph-coverage previews.
 
