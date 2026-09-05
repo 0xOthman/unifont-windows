@@ -1,4 +1,4 @@
-# Unifont-Windows
+# GNU Unifont Windows
 
 <div dir="rtl">
 
@@ -6,7 +6,7 @@
 
 > **ملاحظة:** هذا الملف التعريفي والصور المرفقة أُنشئت بمساعدة الذكاء الاصطناعي، وقد تحتوي على أخطاء.
 
-**التحميل:** ملف `Unifont-Windows.ttf` — انقر عليه مرتين ← Install ← ثم اختر خط **Unifont-Windows** في برنامجك.
+**التحميل:** ملف `GNU-Unifont-Windows.ttf` — انقر عليه مرتين ← Install ← ثم اختر خط **GNU-Unifont-Windows** في برنامجك.
 
 ## المشكلة: الخط الأصلي لا يعمل على ويندوز أصلًا
 
@@ -28,11 +28,11 @@ unifont-17.0.05.otf   GSUB scripts: [DFLT, thai]   features: none   lookups: 0
 
 ## الحل: كيف أُعيد بناء الخط
 
-أُعيد بناء الخط بالكامل في ملف `Unifont-Windows.ttf`:
+أُعيد بناء الخط بالكامل في ملف `GNU-Unifont-Windows.ttf`:
 
 - **حُوّلت الحدود من CFF إلى TrueType (‏`glyf`)** — الصيغة الأصيلة في ويندوز — فصار الخط يُثبَّت ويظهر ويُستخدم في كل تطبيقات ويندوز بشكل طبيعي.
 - **أُضيف إلى جدول GSUB إدخال لنظام الكتابة `arab`** مع خمس عمليات بحث (lookups) تنفّذ ميزات `isol` و`init` و`medi` و`fina` و`rlig`، تربط كل حرف عربي بشكله السياقي الصحيح — وهي أشكال كانت موجودة في Unifont أصلًا لكنها لم تكن مفعّلة.
-- **غُيّر اسم العائلة إلى Unifont-Windows** ليُثبَّت بجانب الأصلي دون تعارض ولا خلط في ذاكرة خطوط ويندوز.
+- **غُيّر اسم العائلة إلى GNU-Unifont-Windows** ليُثبَّت بجانب الأصلي دون تعارض ولا خلط في ذاكرة خطوط ويندوز.
 - **جميع الأشكال (glyphs) والمقاييس والتغطية محفوظة كما هي** من الإصدار الأصلي 17.0.05 — لم يُحذف أو يُغيَّر أي شكل.
 
 ## لقطات شاشة: قصة بالعربية والإنجليزية في تطبيقات مختلفة
@@ -80,9 +80,9 @@ unifont-17.0.05.otf   GSUB scripts: [DFLT, thai]   features: none   lookups: 0
 
 | الملف | الحجم | الغرض |
 |---|---|---|
-| `Unifont-Windows.woff2` | ~1.1 م.ب | المتصفحات الحديثة (كلها تقريبًا) |
-| `Unifont-Windows.woff` | ~2.4 م.ب | احتياطي للمتصفحات القديمة |
-| `unifont-windows.css` | — | قاعدة `@font-face` جاهزة |
+| `GNU-Unifont-Windows.woff2` | ~1.1 م.ب | المتصفحات الحديثة (كلها تقريبًا) |
+| `GNU-Unifont-Windows.woff` | ~2.4 م.ب | احتياطي للمتصفحات القديمة |
+| `gnu-unifont-windows.css` | — | قاعدة `@font-face` جاهزة |
 | `demo.html` | — | صفحة تجربة (عربي، لاتيني، رموز، CJK) |
 
 **الاستخدام:** انسخ مجلد `webfont` إلى موقعك ثم أضف:
@@ -90,11 +90,11 @@ unifont-17.0.05.otf   GSUB scripts: [DFLT, thai]   features: none   lookups: 0
 </div>
 
 ```html
-<link rel="stylesheet" href="webfont/unifont-windows.css">
+<link rel="stylesheet" href="webfont/gnu-unifont-windows.css">
 ```
 
 ```css
-body { font-family: 'Unifont Windows', monospace; }
+body { font-family: 'GNU Unifont Windows', monospace; }
 ```
 
 <div dir="rtl">
@@ -105,8 +105,8 @@ body { font-family: 'Unifont Windows', monospace; }
 
 ```css
 @font-face {
-  font-family: 'Unifont Windows';
-  src: url('https://cdn.jsdelivr.net/gh/0xOthman/unifont-windows@main/webfont/Unifont-Windows.woff2') format('woff2');
+  font-family: 'GNU Unifont Windows';
+  src: url('https://cdn.jsdelivr.net/gh/0xOthman/gnu-unifont-windows@main/webfont/GNU-Unifont-Windows.woff2') format('woff2');
   font-display: swap;
 }
 ```
@@ -132,16 +132,16 @@ A rebuilt Windows version of [GNU Unifont](https://unifoundry.com/unifont/) 17.0
 
 The official `unifont-17.0.05.otf` (included here for comparison) has two problems on Windows: it installs without errors but then either doesn't appear in apps' font lists or renders nothing when selected (it's an OpenType/CFF font that Windows' font stack handles poorly at this size), and its GSUB table is empty — no Arabic shaping rules — so even where it renders, Windows text engines (Uniscribe/DirectWrite: Word, Notepad, most native apps) show Arabic as disconnected letters.
 
-`Unifont-Windows.ttf` fixes both: outlines converted from CFF to TrueType (`glyf`) so the font actually installs and works everywhere on Windows, a proper `arab` GSUB script added with `isol`/`init`/`medi`/`fina`/`rlig` features so Arabic connects correctly, and the family renamed to **Unifont-Windows** to install cleanly alongside the original. **All glyphs, metrics, and coverage are preserved unchanged** from upstream.
+`GNU-Unifont-Windows.ttf` fixes both: outlines converted from CFF to TrueType (`glyf`) so the font actually installs and works everywhere on Windows, a proper `arab` GSUB script added with `isol`/`init`/`medi`/`fina`/`rlig` features so Arabic connects correctly, and the family renamed to **GNU-Unifont-Windows** to install cleanly alongside the original. **All glyphs, metrics, and coverage are preserved unchanged** from upstream.
 
-**Install:** double-click `Unifont-Windows.ttf` → Install → select **Unifont-Windows** in your app.
+**Install:** double-click `GNU-Unifont-Windows.ttf` → Install → select **GNU-Unifont-Windows** in your app.
 
-**Web font:** the `webfont/` folder has WOFF2 (~1.1 MB) / WOFF (~2.4 MB) builds, a ready `@font-face` stylesheet (`unifont-windows.css`), and a `demo.html` test page. Copy the folder to your site and set `font-family: 'Unifont Windows', monospace;`, or load it straight from CDN:
+**Web font:** the `webfont/` folder has WOFF2 (~1.1 MB) / WOFF (~2.4 MB) builds, a ready `@font-face` stylesheet (`gnu-unifont-windows.css`), and a `demo.html` test page. Copy the folder to your site and set `font-family: 'GNU Unifont Windows', monospace;`, or load it straight from CDN:
 
 ```css
 @font-face {
-  font-family: 'Unifont Windows';
-  src: url('https://cdn.jsdelivr.net/gh/0xOthman/unifont-windows@main/webfont/Unifont-Windows.woff2') format('woff2');
+  font-family: 'GNU Unifont Windows';
+  src: url('https://cdn.jsdelivr.net/gh/0xOthman/gnu-unifont-windows@main/webfont/GNU-Unifont-Windows.woff2') format('woff2');
   font-display: swap;
 }
 ```

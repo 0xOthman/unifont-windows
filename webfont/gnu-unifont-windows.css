@@ -1,0 +1,9 @@
+/* GNU Unifont Windows — web font */
+@font-face {
+  font-family: 'GNU Unifont Windows';
+  src: url('GNU-Unifont-Windows.woff2') format('woff2'),
+       url('GNU-Unifont-Windows.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
